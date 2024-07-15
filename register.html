@@ -7,7 +7,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background-color: purple;
+            color: white;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -16,10 +17,10 @@
         }
 
         .container {
-            background-color: #fff;
+            background-color: black;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
             width: 300px;
         }
 
@@ -30,6 +31,8 @@
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            background-color: #333;
+            color: white;
         }
 
         input[type="submit"] {
@@ -44,7 +47,7 @@
 
         h2 {
             text-align: center;
-            color: #333;
+            color: white;
         }
     </style>
 </head>
@@ -55,7 +58,7 @@
             <input type="text" id="username" placeholder="Username" required>
             <input type="password" id="password" placeholder="Password" required>
             <input type="text" id="email" placeholder="Email" required>
-            <input type="tel" id="phone" placeholder="Phone Number" required>
+            <input type="tel" id="phone" placeholder="Phone Number">
             <input type="submit" value="Register">
         </form>
     </div>
@@ -73,7 +76,7 @@
                 username TEXT NOT NULL,
                 password TEXT NOT NULL,
                 email TEXT NOT NULL,
-                phone TEXT NOT NULL
+                phone TEXT
             )`);
 
             return db;
@@ -90,13 +93,6 @@
             var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 alert('Please enter a valid email address');
-                return false;
-            }
-
-            // Basic phone number validation (you can use a library like libphonenumber for more comprehensive validation)
-            var phoneRegex = /^\d{10}$/; // This is a simple regex for 10 digits
-            if (!phoneRegex.test(phone)) {
-                alert('Please enter a valid phone number (10 digits)');
                 return false;
             }
 
