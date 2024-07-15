@@ -11,6 +11,10 @@
             color: #fff;
             margin: 0;
             padding: 0;
+            user-select: none; /* Prevent text selection */
+        }
+        input, textarea {
+            user-select: text; /* Allow text selection for input fields */
         }
         header {
             background-color: #1f1f23;
@@ -83,15 +87,23 @@
             margin-bottom: 10px;
         }
         .section .item {
-            background-color: #3b3054;
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 10px;
             transition: transform 0.3s, background-color 0.3s;
         }
+        .section .item:nth-child(1) {
+            background-color: #e57373;
+        }
+        .section .item:nth-child(2) {
+            background-color: #64b5f6;
+        }
+        .section .item:nth-child(3) {
+            background-color: #ba68c8;
+        }
         .section .item:hover {
             transform: translateY(-5px);
-            background-color: #4e3d73;
+            filter: brightness(1.2);
         }
         .section .item h3 {
             margin: 0 0 10px 0;
@@ -109,6 +121,19 @@
             bottom: 0;
             width: 100%;
         }
+        .main-title {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .main-title h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        .main-title p {
+            font-size: 1.2em;
+            margin: 10px 0 20px 0;
+            color: #ccc;
+        }
     </style>
 </head>
 <body>
@@ -125,6 +150,10 @@
             <h2>Navigation soon</h2>
         </div>
         <div class="main-content">
+            <div class="main-title">
+                <h1>RiotVision</h1>
+                <p>A platform designed for beginners and seasoned users alike. Enjoy an easy-to-use interface, built-in stream recorder, and our new clips feature.</p>
+            </div>
             <div class="section">
                 <h2>Features</h2>
                 <div class="item">
