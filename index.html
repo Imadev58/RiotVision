@@ -3,114 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RiotVision - Streaming Platform for New Streamers</title>
+    <title>RiotVision - Homepage</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background-color: #18181b;
+            color: #fff;
             margin: 0;
             padding: 0;
         }
         header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
+            background-color: #1f1f23;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #323234;
         }
-        h1 {
+        header h1 {
             margin: 0;
-            font-size: 2.5em;
+            font-size: 1.5em;
+        }
+        header .right-buttons {
+            display: flex;
+            align-items: center;
+        }
+        header .right-buttons button, header .right-buttons a {
+            background-color: #9147ff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 15px;
+            margin-left: 10px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        header .right-buttons button:hover, header .right-buttons a:hover {
+            background-color: #772ce8;
         }
         .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        p {
-            line-height: 1.6;
-        }
-        .cta-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #f60;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-        .cta-button:hover {
-            background-color: #ff8127;
-        }
-        .features {
             display: flex;
-            justify-content: space-around;
-            margin-top: 40px;
         }
-        .feature {
-            width: 30%;
-            padding: 20px;
-            background-color: #4CAF50;
-            color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+        .sidebar {
+            width: 240px;
+            background-color: #1f1f23;
+            padding: 10px;
+            border-right: 1px solid #323234;
         }
-        .feature:hover {
-            transform: translateY(-5px);
+        .sidebar h2 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
         }
-        .login-register {
-            margin-top: 30px;
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
         }
-        .login-register a {
-            text-decoration: none;
-            padding: 10px 20px;
-            background-color: #555;
-            color: #fff;
-            border-radius: 5px;
+        .sidebar ul li {
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .sidebar ul li:hover {
+            background-color: #323234;
+        }
+        .sidebar ul li img {
+            border-radius: 50%;
             margin-right: 10px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
         }
-        .login-register a:hover {
-            background-color: #777;
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+        .ad-banner {
+            background-color: #333;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .section .item {
+            background-color: #1f1f23;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .footer {
+            background-color: #1f1f23;
+            padding: 10px;
+            text-align: center;
+            border-top: 1px solid #323234;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to RiotVision</h1>
-        <p>A platform to kickstart your streaming journey</p>
+        <h1>RiotVision</h1>
+        <div class="right-buttons">
+            <input type="text" placeholder="Search" style="padding: 5px; border-radius: 4px; border: 1px solid #323234; background-color: #121212; color: #fff;">
+            <a href="login.php">Log In</a>
+            <a href="register.php">Sign Up</a>
+        </div>
     </header>
     <div class="container">
-        <h2>Why Choose RiotVision?</h2>
-        <div class="features">
-            <div class="feature">
-                <h3>Easy-to-Use Tools</h3>
-                <p>Stream effortlessly with our intuitive dashboard.</p>
+        <div class="sidebar">
+            <h2>Navigation soon</h2>
+        <div class="main-content">
+            <div class="ad-banner">
+                <p>Ad Banner</p>
             </div>
-            <div class="feature">
-                <h3>Engage with Community</h3>
-                <p>Connect with viewers and fellow streamers.</p>
+            <div class="section">
+                <h2>Features</h2>
+                <div class="item">built-in stream recorder</div>
+                <div class="item">easy to use platform</div>
+                <div class="item">clips new clips feature<div>
             </div>
-            <div class="feature">
-                <h3>Growth Resources</h3>
-                <p>Learn tips and tricks to grow your audience.</p>
-            </div>
-        </div>
-        <p>Join RiotVision today and start streaming your passion to the world!</p>
-        <a href="reg.php" class="cta-button">Get Started Now</a>
-        <div class="login-register">
-            <a href="login.php">Login</a>
-            <a href="reg.php">Register</a>
-        </div>
-    </div>
-    <footer style="text-align: center; padding: 10px; background-color: #333; color: #fff; position: fixed; bottom: 0; width: 100%;">
+    <footer class="footer">
         &copy; 2024 RiotVision. All rights reserved.
     </footer>
 </body>
