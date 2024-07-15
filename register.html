@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Register</h2>
+        <form id="registerForm" onsubmit="return validateForm()">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <input type="text" id="email" placeholder="Email" required>
+            <input type="tel" id="phone" placeholder="Phone Number" required>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.5.0/sql-wasm.min.js"></script>
+    <script>
+        // Function to initialize SQLite database
+        async function initDatabase() {
+            // Open or create the database
+            var db = new SQL.Database();
+            
+            // Create users table if it doesn't exist
+            db.run(`CREATE TABLE IF NOT EXISTS users (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                username TEXT NOT NULL,
+                password TEXT NOT NULL,
+                email TEXT NOT NULL,
+                phone TEXT NOT NULL
+            )`);
+
+            return db;
+        }
+
+        // Function to validate form inputs
+        function validateForm() {
+            var username = document.getElementById('username').value.trim();
+            var password = document.getElementById('password').value.trim();
+            var email = document.getElementById('email').value.trim();
+            var phone = document.getElementById('phone').value.trim();
+
+            // Basic email validation (you can use a more complex regex if needed)
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address');
+                return false;
+            }
+
+            // Basic phone number validation (you can use a library like libphonenumber for more comprehensive validation)
+            var phoneRegex = /^\d{10}$/; // This is a simple regex for 10 digits
+            if (!phoneRegex.test(phone)) {
+                alert('Please enter a valid phone number (10 digits)');
+                return false;
+            }
+
+            // Initialize SQLite database
+            initDatabase().then(db => {
+                // Insert user data into the database
+                db.run(`INSERT INTO users (username, password, email, phone) VALUES (?, ?, ?, ?)`,
+                    [username, password, email, phone]);
+
+                // Display success message
+                alert('Registration successful!');
+
+                // Redirect to website.html after successful registration
+                window.location.href = 'website.html';
+            });
+
+            return false; // Prevent form submission since we handle it asynchronously
+        }
+    </script>
+</body>
+</html>
