@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streaming Platform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #333;
+            border-radius: 10px;
+            background-color: #1f1f1f;
+        }
+
+        .stream-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio (adjust as needed) */
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .stream-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .clip-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .clip-button:hover {
+            background-color: #45a049;
+        }
+
+        .clip-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 1000;
+            display: none;
+        }
+
+        .clip-modal h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .clip-modal input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .clip-modal button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .clip-modal button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="stream-wrapper">
+            <video id="streamVideo" class="stream-video" controls autoplay>
+                <!-- Video stream will be dynamically added here -->
+            </video>
+        </div>
+
+        <div class="controls">
+            <button class="clip-button" onclick="openClipModal()">Clip</button>
+            <button class="clip-button" onclick="likeStream()">Like</button>
+        </div>
+
+        <div id="clipModal" class="clip-modal">
+            <h2>Create Clip</h2>
+            <input type="number" id="clipLength" placeholder="Clip length (seconds)" required>
+            <button onclick="generateClip()">Generate Clip</button>
+        </div>
+    </div>
+
+    <script>
+        // Simulated data (replace with actual data retrieval logic)
+        var streamUrl = 'https://example.com/stream'; // Example stream URL
+        var username = 'user1'; // Example username
+
+        // Simulated functions for streaming and interaction
+        function startStream() {
+            var streamVideo = document.getElementById('streamVideo');
+            streamVideo.src = streamUrl;
+        }
+
+        function likeStream() {
+            alert('Liked stream!');
+            // Implement actual like functionality (e.g., send request to server)
+        }
+
+        function openClipModal() {
+            var modal = document.getElementById('clipModal');
+            modal.style.display = 'block';
+        }
+
+        function generateClip() {
+            var clipLength = document.getElementById('clipLength').value;
+            alert('Generating clip of ' + clipLength + ' seconds');
+            // Implement clip generation logic (e.g., download video segment)
+        }
+
+        // Start streaming when page loads (simulated)
+        window.onload = function() {
+            startStream();
+        };
+    </script>
+</body>
+</html>
